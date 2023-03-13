@@ -1,8 +1,11 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-use-before-define */
+/* eslint-disable func-names */
 import './style.css';
 
-let myLibrary = [];
+const myLibrary = [];
 
-let Book = class {
+const Book = class {
 	constructor(title, author, pages, readStatus) {
 		this.title = title;
 		this.author = author;
@@ -13,10 +16,10 @@ let Book = class {
 
 Book.prototype.bookIndex = function (length = 5) {
 	this.index = '';
-	let characters =
+	const characters =
 		'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-	let charactersLength = characters.length;
-	for (var i = 0; i < length; i++) {
+	const charactersLength = characters.length;
+	for (let i = 0; i < length; i+1) {
 		this.index += characters.charAt(
 			Math.floor(Math.random() * charactersLength)
 		);
@@ -89,9 +92,13 @@ function setReadStatus(event) {
 	const foundIndex = myLibrary.findIndex(
 		(x) => x.index === bookToChange
 	);
-	myLibrary[foundIndex].readStatus === 'unread'
-		? (myLibrary[foundIndex].readStatus = 'read')
-		: (myLibrary[foundIndex].readStatus = 'unread');
+	if(myLibrary[foundIndex].readStatus === 'unread'){
+        myLibrary[foundIndex].readStatus = 'read'
+    } 
+	if(myLibrary[foundIndex].readStatus !== 'unread'){
+        myLibrary[foundIndex].readStatus = 'unread';
+    }	 
+		
 }
 
 function drawLibrary() {
