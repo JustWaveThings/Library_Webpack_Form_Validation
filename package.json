@@ -1,0 +1,46 @@
+{
+	"name": "webpack_template_repository",
+	"version": "1.0.0",
+	"description": "Creating a template repository - You can make an existing repository a template, so you and others can generate new repositories with the same directory structure, branches, and files.",
+	"main": ".src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack",
+		"watch": "webpack --watch",
+		"start": "webpack serve --open",
+		"startDock": "webpack serve --progress --port 8080",
+		"deploy": "gh-pages -d dist"
+
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JustWaveThings/webpack_template_repository.git"
+	},
+	"keywords": [],
+	"author": "JustWaveThings",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/JustWaveThings/webpack_template_repository/issues"
+	},
+	"homepage": "https://github.com/JustWaveThings/webpack_template_repository#readme",
+	"devDependencies": {
+		"eslint": "^8.34.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-webpack-plugin": "^4.0.0",
+		"gh-pages": "^5.0.0",
+		"source-map-loader": "^4.0.1",
+		"webpack-cli": "^5.0.1",
+		"webpack-dev-server": "^4.11.1"
+	},
+	"dependencies": {
+		"css-loader": "^6.7.3",
+		"date-fns": "^2.29.3",
+		"file-loader": "^6.2.0",
+		"html-webpack-plugin": "^5.5.0",
+		"style-loader": "^3.3.1",
+		"uuid": "^9.0.0",
+		"webpack": "^5.75.0"
+	}
+}
