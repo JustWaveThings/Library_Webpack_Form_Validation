@@ -31,7 +31,8 @@ p,
 
 
 
-input, 
+HTMLInputElement,
+HTMLButtonElement, 
 select,
 label,
 .dashboard {
@@ -41,6 +42,11 @@ label,
     border-radius: 1ch;
     border: #0ea4e9;
 }
+
+input:invalid {
+    border: 2px dashed red;
+}
+
 
 legend {
     font-weight: 400;
@@ -52,7 +58,6 @@ h5 {
 
 h2 {
     font-size:.5 rem;
-   
 }
 
 p {
@@ -64,16 +69,13 @@ p.tag-text {
     font-weight: 100;
 }
 
-
-
-
 .container {
     display: grid;
     grid-template: .5fr 10fr / .75fr 5fr;
-    background-color: #e2e8f0;
+    background-color: #000000cf;
     height: 100vh;
     width: 100vw;
-}
+}ßß
 
 .header {
     grid-area: 1 / 2;
@@ -87,38 +89,29 @@ p.tag-text {
 }
 .sidebar {
     grid-area: 1 / 1 / 4 / 2;
+    opacity: .7;
     min-width: max-content;
     background-image: linear-gradient(#e1edf23f,#0ea4e9);
-       
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: min-content 1fr;
     box-shadow: 10px 0 20px -5px rgba(115, 115, 115, 0.75);
-
-
 }
 
-
-
-.library-logo {
-    justify-self: center;
-    margin-top: 4em;
-    scale: 200%;
-    rotate: 10deg;
-    fill-opacity: 1;
-    filter: invert(66%) sepia(72%) saturate(3690%) hue-rotate(168deg) brightness(98%) contrast(86%);
+h3 {
+    color: white;
+    opacity: .6;
 }
-
-
-
 
 .title{
     font-family: 'Bubblegum Sans', cursive;
     justify-self: center;
     color: white;
+    opacity: .8;
     font-size: 4rem;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 3rem;
+    
+
 }
 
 .main {
@@ -146,7 +139,7 @@ p.tag-text {
 .dummy-containers {
     width: 275px;
     height: 296px;
-    background-color: white;
+    background-color: gray;
     border: 2px solid  #41b2e7;
 }
 
@@ -154,7 +147,7 @@ p.tag-text {
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    background-color: #fff;
+    background-color: grey;
     padding: 1em;
     border-radius: 15px;
     border-right: 1em solid  #0ea4e95d;
@@ -215,7 +208,8 @@ body>div>div.main>ul>li>h5.item-author {
     grid-row: 4/5;
     grid-column: 2/3;
     justify-self: right;
-    filter: invert(66%) sepia(72%) saturate(3690%) hue-rotate(168deg) brightness(98%) contrast(86%);
+    transform: scale(1);
+    
 }
 
 .proj-title {
@@ -299,6 +293,7 @@ fieldset {
 /* read toggle button  */
 
  .checkbox {
+    opacity: .6;
     grid-row: 4/5;
     grid-column: 2/3;
     justify-self: left;
@@ -341,7 +336,7 @@ fieldset {
 .checkbox:checked::after {
     content: "";
     transform: translateX(calc(100% + 1.2px));
-    background-color: rgb(255, 255, 255);
+    background-color: grey;
 }
 
 .checkbox:checked {
