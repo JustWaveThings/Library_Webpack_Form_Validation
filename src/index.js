@@ -3,7 +3,9 @@
 /* eslint-disable func-names */
 import './style.css';
 
-const myLibrary = [];
+import drompDownMe from 'carlosfrontend-dropdown-generator';
+
+/* const myLibrary = [];
 
 // take two
 
@@ -24,38 +26,37 @@ legend.textContent = 'Add New Book';
 fieldset.appendChild(legend);
 
 // Section generator function
-function createBookSection(labelName, inputType, inputId, inputPlaceholder, inputRequired = true ) {
-	const section = document.createElement('div');
-	section.classList.add('form-control');
-	fieldset.appendChild(section);
+function createBookSection(labelName, inputType, inputId, inputPlaceholder, inputRequired = true) {
+  const section = document.createElement('div');
+  section.classList.add('form-control');
+  fieldset.appendChild(section);
 
-	const label = document.createElement('label');
-	label.textContent = labelName;
-	label.setAttribute('for', inputId);
-	section.appendChild(label);
+  const label = document.createElement('label');
+  label.textContent = labelName;
+  label.setAttribute('for', inputId);
+  section.appendChild(label);
 
-	const input = document.createElement(inputType);
-	input.id = inputId;
-	input.name = inputId;
-	input.placeholder = inputPlaceholder;
-	input.required = inputRequired;
-	if (inputId === 'number') {
-		input.min = 1;
-		input.max = 5000;
-		input.type = 'number';
-	}
-	if (inputId === 'title' || inputId === 'author') {
-		input.type = 'text';
-		input.minLength = 2;
-		input.maxLength = 40;
-	}
-	section.appendChild(input);
+  const input = document.createElement(inputType);
+  input.id = inputId;
+  input.name = inputId;
+  input.placeholder = inputPlaceholder;
+  input.required = inputRequired;
+  if (inputId === 'number') {
+    input.min = 1;
+    input.max = 5000;
+    input.type = 'number';
+  }
+  if (inputId === 'title' || inputId === 'author') {
+    input.type = 'text';
+    input.minLength = 2;
+    input.maxLength = 40;
+  }
+  section.appendChild(input);
 }
 
 createBookSection('*Title:', 'input', 'title', 'Enter title');
 createBookSection('*Author:', 'input', 'author', 'Enter author');
 createBookSection('*Pages:', 'input', 'number', 'Enter pages');
-
 
 const formBtn = document.createElement('button');
 formBtn.type = 'submit';
@@ -66,12 +67,10 @@ fieldset.appendChild(formBtn);
 
 form.appendChild(fieldset);
 
-
 // script the validation
 const formTitleCheckValid = document.getElementById('title');
 const formAuthorCheckValid = document.getElementById('author');
 const formPagesCheckValid = document.getElementById('number');
-
 
 const Book = class {
   constructor(title, author, pages, readStatus) {
@@ -84,13 +83,10 @@ const Book = class {
 
 Book.prototype.bookIndex = function (length = 5) {
   this.index = '';
-  const characters =
-    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
   for (let i = 0; i < length; i += 1) {
-    this.index += characters.charAt(
-      Math.floor(Math.random() * charactersLength)
-    );
+    this.index += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return this.index;
 };
@@ -112,12 +108,7 @@ book4.addBookToLibrary();
 
 function addBook(event) {
   event.preventDefault();
-  const sample = new Book(
-    formTitle.value,
-    formAuthor.value,
-    formPages.value,
-    formRead.value
-  );
+  const sample = new Book(formTitle.value, formAuthor.value, formPages.value, formRead.value);
   sample.addBookToLibrary();
   emptyBookshelf();
   drawLibrary();
@@ -137,9 +128,7 @@ function emptyBookshelf(parent = container) {
 
 function deleteBook(event) {
   const bookToBeDeletedIndex = event.currentTarget.dataset.indexValue;
-  const foundIndex = myLibrary.findIndex(
-    (x) => x.index === bookToBeDeletedIndex
-  );
+  const foundIndex = myLibrary.findIndex(x => x.index === bookToBeDeletedIndex);
   myLibrary.splice(foundIndex, 1);
   emptyBookshelf();
   drawLibrary();
@@ -147,7 +136,7 @@ function deleteBook(event) {
 
 function setReadStatus(event) {
   const bookToChange = event.currentTarget.dataset.indexValue;
-  const foundIndex = myLibrary.findIndex((x) => x.index === bookToChange);
+  const foundIndex = myLibrary.findIndex(x => x.index === bookToChange);
   if (myLibrary[foundIndex].readStatus === 'unread') {
     myLibrary[foundIndex].readStatus = 'read';
   }
@@ -203,14 +192,12 @@ function drawLibrary() {
     readValue.id = 'checkbox';
     readValue.setAttribute('type', 'checkbox');
     readValue.setAttribute('name', 'checkbox');
-    console.log(
-      `On redraw/reload, for book ${i} the read status is: ${myLibrary[i].readStatus}`
-    );
+    console.log(`On redraw/reload, for book ${i} the read status is: ${myLibrary[i].readStatus}`);
     if (myLibrary[i].readStatus === 'read') {
       readValue.checked = true;
     }
     readValue.dataset.indexValue = myLibrary[i].index;
-    readValue.addEventListener('pointerup', (event) => {
+    readValue.addEventListener('pointerup', event => {
       setReadStatus(event);
     });
 
@@ -224,7 +211,7 @@ function drawLibrary() {
     deleteIcon.classList.add('delete');
     deleteIcon.textContent = 'Delete';
     deleteIcon.dataset.indexValue = myLibrary[i].index;
-    deleteIcon.addEventListener('click', (event) => {
+    deleteIcon.addEventListener('click', event => {
       deleteBook(event);
     });
 
@@ -246,6 +233,6 @@ const formAuthor = document.getElementById('author');
 const formPages = document.getElementById('pages');
 const formRead = document.getElementById('readStatus');
 const formButton = document.querySelector('#btn');
-/* formButton.addEventListener('click', (event) => {
-	addBook(event);
-}) */ drawLibrary();
+ drawLibrary();
+*/
+drompDownMe();
